@@ -1,3 +1,14 @@
+#Setup and Usage
+Install Pipenv to manage dependencies
+```
+pip install pipenv
+```
+
+Add pipenv to your path and run the program with:
+```
+pipenv run network --help
+```
+
 # Biologically Inspired Computation (F20BC/F21BC) 
 # Coursework 
 **This assessment is worth 50% of your course mark**

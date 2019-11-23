@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "82adb6b3d5edae8dc2aa45fe7677ef063ac8bf39efbf2f578248184e31aca10f"
+            "sha256": "260165daafea751d9c481115a3492ac62cda261885fd126f39db83e5e6a1354c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -146,6 +146,14 @@
                 "sha256:4ca62001be367f01bd3e92ecbb79070272a9d4964dce6a48a82ff0b8bc7e683a"
             ],
             "version": "==2.4.5"
+        },
+        "pyrecord": {
+            "hashes": [
+                "sha256:647a829b8ece3084371609f7583aaecc2d1862e0af100ea7f2f7ff9aff961290",
+                "sha256:eaaf85eb7900926efe3c0ce1001a6430bd6f151c7b8e9a0b159fef3937098462"
+            ],
+            "index": "pypi",
+            "version": "==1.0.1"
         },
         "python-dateutil": {
             "hashes": [
