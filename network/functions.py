@@ -1,6 +1,6 @@
 import numpy as np
 
-from .my_types import Data
+from network.my_types import Data
 
 # Activation Functions
 

@@ -1,5 +1,6 @@
 import click
-from .ANN import ANN
+
+from network.ANN import ANN
 
 
 @click.command()
