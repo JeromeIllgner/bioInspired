@@ -1,6 +1,6 @@
 import numpy as np
 
-from .types import Data
+from .my_types import Data
 
 # Activation Functions
 

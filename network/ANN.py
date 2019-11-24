@@ -2,7 +2,7 @@ import numpy as np
 from typing import List
 
 from .functions import null, sigmoid, gaussian, identity, mean_squared_error as mse
-from .types import Layer, Vector, Data
+from .my_types import Layer, Vector, Data
 
 # Possible options for activation functions
 funcs = [null, sigmoid, np.tanh, np.cos, gaussian]
