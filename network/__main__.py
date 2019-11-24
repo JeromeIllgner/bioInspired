@@ -1,11 +1,9 @@
 import click
-from .ANN import ANN
 
 
 @click.command()
 def network():
-    test = ANN([3, 2, 1])
-    print(test.weights)
+    pass
 
 
 if __name__ == "__main__":

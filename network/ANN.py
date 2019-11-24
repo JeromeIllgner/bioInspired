@@ -7,6 +7,9 @@ from .types import Layer, Vector, Data
 # Possible options for activation functions
 funcs = [null, sigmoid, np.tanh, np.cos, gaussian]
 
+# Numpy vectorised function to apply one vector to another.
+apply = np.vectorize(lambda f, x: f(x))
+
 
 class ANN:
     """
@@ -34,7 +37,7 @@ class ANN:
         # Initialise weights, activation function and bias for each node
         for layer in range(len(shape) - 1):
             weights = np.random.randn(shape[layer+1], shape[layer])
-            activation = np.array([funcs[i] for i in np.random.randint(len(funcs), size=shape[layer+1])])
+            activation = np.random.choice(funcs, shape[layer+1])
             bias = np.random.randn(shape[layer+1])
             self.layers.append(Layer(weights, activation, bias))
 
@@ -100,13 +103,11 @@ class ANN:
         :return: Single output vector
         :rtype: Vector
         """
-        layer_values = x
+        layer_values = np.array(x)
         # For each layer, apply the activation function to the sum of the weighted inputs and the bias.
         # Weight summation uses matrix multiplication for speed and brevity.
         for layer in self.layers:
-            layer_values = np.matmul(layer.weights, layer_values)
-            pre_op = zip(layer_values, layer.activation, layer.bias)
-            layer_values = [activation(node_value + bias) for node_value, activation, bias in pre_op]
+            layer_values = apply(layer.activation, (layer.weights @ layer_values) + layer.bias)
         return np.array(layer_values)
 
     @property

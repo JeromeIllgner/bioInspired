@@ -1,6 +1,4 @@
 import numpy as np
-from typing import Union
-
 
 from .types import Data
 
@@ -50,11 +48,12 @@ def identity(x: float) -> float:
     """
     return x
 
+
 # Training Functions
 
-
 # Error Functions
-def mean_squared_error(predictions: Data, ground_truth: Data) -> Union[float, None]:
+
+def mean_squared_error(predictions: Data, ground_truth: Data) -> float:
     """
     Function to take the MSE (Mean Squared Error) of two equal length lists of output vectors.
     Commonly used to take get the MSE of predictions from a network and the ground truth. All vectors in the list must
