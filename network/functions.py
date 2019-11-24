@@ -50,9 +50,44 @@ def identity(x: float) -> float:
 
 
 # Training Functions
+def cubic(x: float) -> float:
+    """
+    Cubic training function
+    :param x: Input value to function
+    :type x: float
+    :return: x^3
+    :rtype: float
+    """
+    return x ** 3
+
+
+def xor(x1: int, x2: int) -> int:
+    """
+    xor training function
+    :param x1: Input value to function
+    :param x2: Input value to function
+    :type x1: int
+    :type x2: int
+    :return: x1 XOR x2
+    :rtype: int
+    """
+    return x1 ^ x2
+
+
+def complex_train(x1: float, x2: float) -> float:
+    """
+    complex training function
+    :param x1: Input value to function
+    :param x2: Input value to function
+    :type x1: float
+    :type x2: float
+    :return: 1.9{ 1.35 + e^x1-x2 sin[13(x1 -0.6)^2]sin[7x2] }
+    :rtype: int
+    """
+    return 1.9 * (1.35 + np.exp(x1 - x2) * np.sin(13*((x1-0.6)**2)) * np.sin(7*x2))
+
 
 # Error Functions
-
 def mean_squared_error(predictions: Data, ground_truth: Data) -> float:
     """
     Function to take the MSE (Mean Squared Error) of two equal length lists of output vectors.
