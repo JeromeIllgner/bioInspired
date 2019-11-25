@@ -8,8 +8,8 @@ class PSO:
     An implementation for Particle Swarm Optimisation to optimise the ANN.
     """
 
-    def __init__(self, dimensions, evaluate, iterations=50, alpha=0.7, beta=1.2,
-                 gamma=1.2, delta=1.2, informants=5, step=1, particles=40, min_val=-1, max_val=1):
+    def __init__(self, dimensions, evaluate, iterations=50, alpha=0.7, beta=1.2, gamma=1.2, delta=1.2, seed=None,
+                 informants=5, step=1, particles=40, min_val=-1, max_val=1):
         # Save initial arguments for later use
         self.iterations = iterations
         self.evaluate = evaluate
@@ -22,6 +22,9 @@ class PSO:
         self.max = max_val
         self.particles = particles
         self.dimensions = dimensions
+
+        if seed != None:
+            np.random.seed(seed)
 
         # Initialise neighbourhoods
         self.neighbours = np.random.randint(particles - 1, size=(particles, informants))
