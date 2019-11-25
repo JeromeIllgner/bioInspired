@@ -23,7 +23,7 @@ class PSO:
         self.particles = particles
         self.dimensions = dimensions
 
-        if seed != None:
+        if seed is not None:
             np.random.seed(seed)
 
         # Initialise neighbourhoods
@@ -42,7 +42,7 @@ class PSO:
         best_of_epoch = []
         for epoch in range(1, self.iterations, self.step):
             self._iterate_once()
-            best_of_epoch.append(self.global_best.position)
+            best_of_epoch.append((self.global_best.position, self.global_best.value))
             print(f"Epoch {epoch} out of {self.iterations}.")
         return best_of_epoch
 
