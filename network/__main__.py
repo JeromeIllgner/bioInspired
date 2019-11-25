@@ -14,7 +14,7 @@ def train_ann(ann: ANN, data):
     dimensions = 2 * bias_and_activation + weights
     pso = PSO(dimensions, wrap_eval(ann, data))
     best_per_epoch = pso.optimise()
-    encode_ann(ann, best_per_epoch[-1])
+    encode_ann(ann, best_per_epoch[-1][0])
     return best_per_epoch
 
 
