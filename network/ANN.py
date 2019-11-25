@@ -27,7 +27,7 @@ class ANN:
     :type layers: List(Layer)
     """
     def __init__(self, shape: List[int], seed: int = None, output_activation: bool = False) -> None:
-        self.shape = shape
+        self.shape = np.array(shape)
         self.layers = []
 
         # Set to known seed if required
@@ -65,7 +65,7 @@ class ANN:
                              f"truth ({len(ground_truth)})")
 
         # Make inputs conform
-        if type(ground_truth[0]) is int:
+        if type(ground_truth[0]) is float:
             ground_truth = [ground_truth]
 
         # Perform predictions and calculate error
@@ -81,7 +81,7 @@ class ANN:
         :rtype: List[Vector]
         """
         # Check if it's a single input vector or many
-        if type(x[0]) is int:
+        if type(x[0]) is float:
             x = [x]
 
         # Check if vector has correct input shape and perform predictions
@@ -107,8 +107,12 @@ class ANN:
         # For each layer, apply the activation function to the sum of the weighted inputs and the bias.
         # Weight summation uses matrix multiplication for speed and brevity.
         for layer in self.layers:
-            layer_values = apply(layer.activation, (layer.weights @ layer_values) + layer.bias)
+            layer_values = apply(layer.activation, layer_values@layer.weights + layer.bias)
         return np.array(layer_values)
+
+    @property
+    def size(self):
+        return sum(self.shape[1:]), self.shape[1:] * self.shape[:-1]
 
     @property
     def weights(self):
